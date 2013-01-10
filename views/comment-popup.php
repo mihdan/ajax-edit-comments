@@ -9,8 +9,8 @@ if (!isset($aecomments)) { //for wp-load.php
 }
 do_action('aec-popup-box-head');
 AECCSS::output_interface_css();
-AECJS::output_js( 'aec_popups', array( 'jquery' ), false, 'aec/popups', 'popups' );
-wp_print_scripts(array('aec_popups'));
+AECJS::register_popups_js( 'comment-popup' );
+wp_print_scripts( array( 'aec_popups' ) );
 wp_print_styles( array( 'aeccommenteditor' ) );
 do_action('add_wp_ajax_comments_css_editor');
 

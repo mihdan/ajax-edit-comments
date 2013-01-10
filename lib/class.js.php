@@ -44,9 +44,7 @@ class AECJS {
 			wp_register_script( 'jquery-tools', $aecomments->get_plugin_url( '/js/jquery.tools.min.js' ) , array('jquery'), $aecomments->get_version(), true);
 			wp_register_script( 'jquery-tools-tabs', $aecomments->get_plugin_url( '/js/tab-config.js' ), array( 'jquery-tools' ), $aecomments->get_version() );
 			
-			$localize_vars = AECDependencies::get_js_vars();
-			$localize_vars = array_merge( $localize_vars, array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ), 'title' => __('Comment Box', 'ajaxEdit') ) );
-			
+			$localize_vars = AECDependencies::get_js_vars();			
 			$deps = array( 'jquery' );
 			
 			$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_popups' ) == "true"  ? true : false);
@@ -57,6 +55,7 @@ class AECJS {
 			
 			wp_register_script( 'aec_popups', $aecomments->get_plugin_url( "/js/{$handler}{$min}.js" ), $deps, $aecomments->get_version() );
 			wp_localize_script( 'aec_popups', 'wpajaxeditcommentedit', $localize_vars );
+			wp_localize_script( 'aec_popups', 'aec_popup', array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ), 'title' => __('Comment Box', 'ajaxEdit') ) );
 			
 			//Include the various interfaces
 			/*include( $aecomments->get_plugin_dir( "/js/comment-editor{$min}.js" ) );
