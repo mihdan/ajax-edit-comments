@@ -262,8 +262,6 @@ if (isset($_POST['update'])) {
 	if ($updated && !$error) {
 		$aecomments->set_user_option( AECUtility::get_user_email() , $author_options );
 		$aecomments->save_admin_options( $options );
-		//Update CSS and Scripts
-		$aecomments->upgrade_dependencies();
 	?>
 <div class="updated"><p><strong><?php _e('Settings successfully updated.', 'ajaxEdit') ?></strong></p></div>
 <?php

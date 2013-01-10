@@ -369,12 +369,10 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			if ( !is_admin( ) ) add_action('wp_print_scripts', array('AECDependencies','add_post_scripts'),1000);
 			
 			//Admin exclusive JavaScript
-			add_action('admin_print_scripts-plugins.php', array('AECDependencies', 'add_admin_scripts'), 1000);
 			add_action('admin_print_scripts-aec_page_wpaecsettings', array('AECDependencies', 'add_admin_scripts'), 1000);
 			
 			
 			//Ajax stuff
-			add_action( 'wp_ajax_upgradecheck', array( &$this->upgrade ,'ajax_upgrade_check' ) );
 			AECAjax::initialize_actions();
 			
 			
@@ -385,7 +383,6 @@ if (!class_exists('WPrapAjaxEditComments')) {
    			  add_action( 'admin_menu', array("AECAdmin",'add_admin_pages') );
 			}
 			
-     		//add_action('install_plugins_pre_plugin-information', array( &$this->upgrade, 'display_changelog' ) );
 			if (!is_feed()) {
 				//Yay, filters.
 				add_filter('comment_excerpt', array("AECFilters", 'add_edit_links'), '1000');
@@ -400,13 +397,10 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			
 			
 			//* Localization Code */
-			load_plugin_textdomain('ajaxEdit', false, 'wp-ajax-edit-comments/languages');
+			load_plugin_textdomain('ajaxEdit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 			
 		}//end function init
-		public function init_upgrades() {
-			//Instantiate upgrades
-			$this->upgrade = new AECUpgrade();
-		}
+		
 		public function is_multisite() {
 			global $aecomments;
 			$multisite_network = false;
@@ -489,7 +483,6 @@ if (class_exists('WPrapAjaxEditComments')) {
 function aec_instantiate() {
 	global $aecomments;
 	$aecomments = new WPrapAjaxEditComments();
-	//$aecomments->init_upgrades();
 }
 //Template redirection stuff
 add_action('template_redirect', 'aec_load_pages');
