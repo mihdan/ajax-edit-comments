@@ -19,16 +19,17 @@ class AECJS {
 					wp_enqueue_script( 'aec_admin_init', $aecomments->get_plugin_url( '/js/admin-panel.js' ), $dependencies, $aecomments->get_version(), $in_footer );
 					wp_enqueue_script( 'aec_admin_tabs', $aecomments->get_plugin_url( '/js/tab-config.js' ), array( 'aec_admin_init' ), $aecomments->get_version(), $in_footer );
 					break;
-				case "frontend": /* After the Deadline and Expand popup */
+				case "aec_frontend": /* After the Deadline and Expand popup */
 					$atdlang = "true";
 					$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_posts' ) == "true" ? true : false);
 					if (!$afterthedeadline) {
 						$atdlang = "false";
 					}	
 					$aec_frontend = 	$aecomments->get_admin_option( 'use_wpload' ) == 'true' ? $aecomments->get_plugin_url( '/views/comment-popup.php' ) : site_url( '/?aec_page=comment-popup.php' );
-					AECUtility::js_localize('aec_frontend', array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ),'url' => $aec_frontend, 'title' => __('Comment Box', 'ajaxEdit')), true );
-					include( $aecomments->get_plugin_dir( 'js/jquery.atd.textarea.js' ) );
-					include( $aecomments->get_plugin_dir( 'js/frontend.js' ) );
+					wp_enqueue_script( 'aec_atd', $aecomments->get_plugin_url( 'js/jquery.atd.textarea.js' ), $dependencies, $aecomments->get_version(), $in_footer );
+					wp_enqueue_script( 'aec_frontend', $aecomments->get_plugin_url( 'js/frontend.js' ), array( 'aec_atd' ), $aecomments->get_version(), $in_footer );
+					
+					wp_localize_script( 'aec_atd', 'aec_frontend', array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ),'url' => $aec_frontend, 'title' => __('Comment Box', 'ajaxEdit') ) );
 					break;
 				case "popups":
 					$atdlang = "true";
