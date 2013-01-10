@@ -6,72 +6,6 @@ global $wpdb,$aecomments, $user_email;
 if ( !is_a( $aecomments, 'WPrapAjaxEditComments' ) && !current_user_can( 'administrator' ) ) 
 	die('');
 
-//Style override
-if ( isset( $_POST['overwrite-styles'] ) ) {
-	if ( isset( $_POST['overwrite_styles'] ) ) {
-		$style_update = __('Styles may now be customized', 'ajaxEdit');
-		$aecomments->save_admin_option( 'overwrite_styles', 'true' );
-	} else {
-		$style_update = __('Styles editing has been disabled.', 'ajaxEdit');
-		$aecomments->save_admin_option( 'overwrite_styles', 'false' );
-	}
-	?>
-    <div class="updated"><p><strong><?php echo esc_html( $style_update );  ?></strong></p></div>
-    <?php
-} //end style override
-//Save styles
-if ( isset( $_POST['save-styles'] ) ) {
-	$editing_styles = stripslashes( $_POST['editing-styles'] );
-	$interface_styles = stripslashes( $_POST['interface-styles'] );
-
-	$editing_styles = AECCSS::update_css( 'aec/edit-comments_custom', $editing_styles );
-	$interface_styles = AECCSS::update_css( 'aec/comment-editor_custom', $interface_styles );
-	$errors = false;
-	if ( is_wp_error( $editing_styles ) ) {
-		$errors = true;
-		?>
-        <div class="error"><p><strong><?php _e( 'Could not save Edit Buttons styles', 'ajaxEdit' );  ?></strong></p></div>
-        <?php
-	}
-	if ( is_wp_error( $interface_styles ) ) {
-		$errors = true;
-		?>
-        <div class="error"><p><strong><?php _e( 'Could not save Popup Interface styles', 'ajaxEdit' );  ?></strong></p></div>
-        <?php
-	}
-	if ( !$errors ) {
-		?>
-        <div class="updated"><p><strong><?php _e( 'Custom styles have been saved.', 'ajaxEdit' );  ?></strong></p></div>
-        <?php
-	}
-} //end save styles
-//Reset Styles
-if ( isset( $_POST['reset-styles'] ) ) {
-	$editing_styles = AECCSS::get_main_css();
-	$interface_styles =  AECCSS::get_interface_css();
-
-	$editing_styles = AECCSS::update_css( 'aec/edit-comments_custom', $editing_styles );
-	$interface_styles = AECCSS::update_css( 'aec/comment-editor_custom', $interface_styles );
-	$errors = false;
-	if ( is_wp_error( $editing_styles ) ) {
-		$errors = true;
-		?>
-        <div class="error"><p><strong><?php _e( 'Could not reset Edit Buttons styles', 'ajaxEdit' );  ?></strong></p></div>
-        <?php
-	}
-	if ( is_wp_error( $interface_styles ) ) {
-		$errors = true;
-		?>
-        <div class="error"><p><strong><?php _e( 'Could not reset Popup Interface styles', 'ajaxEdit' );  ?></strong></p></div>
-        <?php
-	}
-	if ( !$errors ) {
-		?>
-        <div class="updated"><p><strong><?php _e( 'Styles have been reset.', 'ajaxEdit' );  ?></strong></p></div>
-        <?php
-	}
-} //end reset styles
-
 //Delete security keys 
 if (isset($_POST['security_keys'])) {
 	if ($_POST['security_keys'] == "true") {
@@ -264,13 +198,6 @@ if (isset($_POST['update'])) {
 		$aecomments->save_admin_options( $options );
 	?>
 <div class="updated"><p><strong><?php _e('Settings successfully updated.', 'ajaxEdit') ?></strong></p></div>
-<?php
-	if ( $options['overwrite_styles'] == 'true' ) {
-		?>
-        <div class="updated"><p><strong><?php _e('Styles have not been updated since they are currently being overwritten.', 'ajaxEdit') ?></strong></p></div>
-        <?php
-	} //end overwrite_styles check
-?>
 <?php
 }
 ?>
@@ -491,7 +418,6 @@ if (isset($_POST['update'])) {
 	<div class="pane" style="display: none;">
         <ul class="tabs">
             <li><a href="#2-1" class=""><?php _e('Display', 'ajaxEdit') ?></a></li>
-            <li><a href="#2-2" class=""><?php _e('Styles', 'ajaxEdit') ?></a></li>
             <li><a href="#2-3" class=""><?php _e('Icons', 'ajaxEdit') ?></a></li> 
             <li><a href="#2-4" class=""><?php _e('Colorbox', 'ajaxEdit') ?></a></li> 
         </ul>
@@ -539,59 +465,7 @@ if (isset($_POST['update'])) {
   </tbody>
   </table>
         </div>
-        <!--/appearance/display-->
-        <!--appearance/styles-->
-        <div class="pane" style="display: none;">
-        
-</form>
-<?php
-if ( $options['overwrite_styles'] == 'true' ) :
-	$aec_main_css = AECCSS::get_main_css_to_edit();
-	$aec_interface_css = AECCSS::get_interface_css_to_edit();
-	if ( is_wp_error( $aec_main_css ) || is_wp_error( $aec_interface_css ) ) :
-		//custom files could not be written, spit out an error
-		$aecomments->save_admin_option( 'overwrite_styles', 'false' );
-		$options['overwrite_styles'] = 'false';
-		?>
-		<div class="error"><?php _e( 'Could not create custom CSS files for editing.  Style editing has been disabled.', 'ajaxEdit' ); ?></div>
-		<?php
-	endif;
-endif; ?>
-
-<table class="form-table">
-	<tbody>
-  <tr valign="top">
-  <th scope="row"><?php _e( 'Style Customization', 'ajaxEdit' ); ?></th>
-  <td><p><input type="checkbox" id="overwrite_styles" name="overwrite_styles" value="true" <?php checked( $options['overwrite_styles'], 'true' ); ?><label for="overwrite_styles"><?php _e( 'Customize the styles?', 'ajaxEdit' ); ?></label></p>
-        	<p class="submit">
-  <input class='button-primary' type="submit" name="overwrite-styles" value="<?php _e('Update Style Override', 'ajaxEdit') ?>" />
-</p><!--/submit-->
-</td>
-</tr>
-<?php if ( $options['overwrite_styles'] == 'true' ) : ?>
-
-<tr valign="top">
-<th scope="row"><?php _e( 'Edit Buttons', 'ajaxEdit' ); ?></th>
-<td><p><?php _e( 'The following styles control the appearance of the edit buttons.', 'ajaxEdit' ); ?></p>
-<textarea class="large-text code" name="editing-styles" rows="20" cols="40"><?php echo $aec_main_css; ?></textarea>
-</td>
-</tr>
-<tr valign="top">
-<th scope="row"><?php _e( 'Popup Interface', 'ajaxEdit' ); ?></th>
-<td><p><?php _e( 'The following styles control the appearance of the popups.', 'ajaxEdit' ); ?></p>
-<textarea class="large-text code" name="interface-styles" rows="20" cols="40"><?php echo $aec_interface_css; ?></textarea>
-</td>
-</tr>
-<?php endif; ?>
- </tbody>
-</table>
-<?php if ( $options['overwrite_styles'] == 'true' ) : ?>
-<p class="submit">
-  <input class='button-primary' type="submit" name="save-styles" value="<?php _e('Save Styles', 'ajaxEdit') ?>" />&nbsp;&nbsp;<input class='button-secondary' type="submit" name="reset-styles" value="<?php _e('Reset Styles', 'ajaxEdit') ?>" />
-</p><!--/submit-->
-
-<?php endif; ?>
-</div><!--/appearance/styles-->
+        <!--/appearance/display-->        
 <!--appearance/icons-->
 <div class="pane" style="display: none;">
 <table class="form-table">
