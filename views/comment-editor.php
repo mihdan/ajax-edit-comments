@@ -78,10 +78,9 @@ if ($aecomments->get_admin_option( 'compressed_scripts' ) == 'true') {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <?php 
-wp_register_script('jquery-tools', $aecomments->get_plugin_url() . '/js/jquery.tools.min.js', array('jquery'), $aecomments->get_version(), true);
 AECCSS::output_interface_css();
-AECJS::output_js( 'aec_popups', array( 'jquery', 'jquery-tools' ), false );
-wp_print_scripts(array('aec_popups') );
+AECJS::register_popups_js( 'comment-editor' );
+wp_print_scripts( array( 'aec_popups', 'jquery-tools-tabs' ) );
 wp_print_styles( array( 'aeccommenteditor' ) );
 do_action('add_wp_ajax_comments_css_editor');
 ?>

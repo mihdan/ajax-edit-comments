@@ -31,30 +31,42 @@ class AECJS {
 					
 					wp_localize_script( 'aec_atd', 'aec_frontend', array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ),'url' => $aec_frontend, 'title' => __('Comment Box', 'ajaxEdit') ) );
 					break;
-				case "popups":
-					$atdlang = "true";
-					$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_posts' ) == "true" ? true : false);
-					if (!$afterthedeadline) {
-						$atdlang = "false";
-					}	
-					AECUtility::js_localize('wpajaxeditcommentedit',AECDependencies::get_js_vars(), true);
-					AECUtility::js_localize('aec_popup', array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ), 'title' => __('Comment Box', 'ajaxEdit')), true );
-					//Include the various interfaces
-					include( $aecomments->get_plugin_dir( "/js/comment-editor{$min}.js" ) );
-					include( $aecomments->get_plugin_dir( "/js/blacklist-comment{$min}.js" ) );
-					include( $aecomments->get_plugin_dir( "/js/comment-popup{$min}.js" ) );
-					include( $aecomments->get_plugin_dir( "/js/email{$min}.js" ) );
-					include( $aecomments->get_plugin_dir( "/js/move-comment{$min}.js" ) );
-					include( $aecomments->get_plugin_dir( "/js/request-deletion{$min}.js" ) );
-					
-					$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_popups' ) == "true"  ? true : false);
-					if ($afterthedeadline) {
-						include( $aecomments->get_plugin_dir( '/js/jquery.atd.textarea.js' ) );
-					}
-					include( $aecomments->get_plugin_dir( '/js/jquery.tools.min.js' ) );
-					include( $aecomments->get_plugin_dir( '/js/tab-config.js' ) );
-					break;
 			} //end switch
-		} //end get_interface_css
+		} //end get_us
+		
+		public static function register_popups_js( $handler ) {
+			global $aecomments;
+			$atdlang = "true";
+			$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_posts' ) == "true" ? true : false);
+			if (!$afterthedeadline) {
+				$atdlang = "false";
+			}
+			wp_register_script( 'jquery-tools', $aecomments->get_plugin_url( '/js/jquery.tools.min.js' ) , array('jquery'), $aecomments->get_version(), true);
+			wp_register_script( 'jquery-tools-tabs', $aecomments->get_plugin_url( '/js/tab-config.js' ), array( 'jquery-tools' ), $aecomments->get_version() );
+			
+			$localize_vars = AECDependencies::get_js_vars();
+			$localize_vars = array_merge( $localize_vars, array('atdlang' => $atdlang, 'atd' => $aecomments->get_admin_option( 'after_deadline_posts' ),'expand' => $aecomments->get_admin_option( 'expand_posts' ), 'title' => __('Comment Box', 'ajaxEdit') ) );
+			
+			$deps = array( 'jquery' );
+			
+			$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_popups' ) == "true"  ? true : false);
+			if ($afterthedeadline) {
+				wp_register_script( 'aec_atd', $aecomments->get_plugin_url( 'js/jquery.atd.textarea.js' ), 'jquery', $aecomments->get_version() );
+				$deps[] = 'aec_atd';
+			}
+			
+			wp_register_script( 'aec_popups', $aecomments->get_plugin_url( "/js/{$handler}{$min}.js" ), $deps, $aecomments->get_version() );
+			wp_localize_script( 'aec_popups', 'wpajaxeditcommentedit', $localize_vars );
+			
+			//Include the various interfaces
+			/*include( $aecomments->get_plugin_dir( "/js/comment-editor{$min}.js" ) );
+			include( $aecomments->get_plugin_dir( "/js/blacklist-comment{$min}.js" ) );
+			include( $aecomments->get_plugin_dir( "/js/comment-popup{$min}.js" ) );
+			include( $aecomments->get_plugin_dir( "/js/email{$min}.js" ) );
+			include( $aecomments->get_plugin_dir( "/js/move-comment{$min}.js" ) );
+			include( $aecomments->get_plugin_dir( "/js/request-deletion{$min}.js" ) );*/
+			
+			
+		} //end get_js_popups
 		
 } //end AECJS
