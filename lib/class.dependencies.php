@@ -48,13 +48,7 @@ class AECDependencies {
 					return;
 
 				//Output CSS or enqueue depending on if a file exists or not
-				$css_uri = AECCSS::get_main_css_url( );
-				if ( is_wp_error( $css_uri ) ) {
-					AECCSS::get_main_css( true ); //echo out
-				} else {
-					
-					wp_enqueue_style('aeceditcomments', $css_uri, array(), $aecomments->get_version());
-				}
+				AECCSS::get_main_css( true ); //echo out
 				
 				//Output clearfix - Saves a page request so it echoes out the entire CSS in the source
 				ob_start();
