@@ -36,6 +36,7 @@ class AECJS {
 		
 		public static function register_popups_js( $handler ) {
 			global $aecomments;
+			$min = $aecomments->get_admin_option( 'compressed_scripts' ) == 'true' ? ".min" : '';
 			$atdlang = "true";
 			$afterthedeadline = ($aecomments->get_admin_option( 'after_deadline_posts' ) == "true" ? true : false);
 			if (!$afterthedeadline) {
