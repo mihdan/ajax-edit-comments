@@ -260,13 +260,6 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			return $this->user_options;
 		} //end get_all_user_options
 		
-		
-		public function get_aec_upgrade_url( $path = '') {
-			$url = $this->aec_url;
-			if ( !empty( $path ) && is_string( $path) )
-				$url .= '/' . ltrim( $url, '/' );
-			return $url;	
-		}
 		//Returns a colorbox variable
 		public function get_colorbox_param( $key = '' ) {
 			if ( array_key_exists( $key, $this->colorbox_params ) ) {
@@ -326,9 +319,6 @@ if (!class_exists('WPrapAjaxEditComments')) {
 		}
 		/* init - Run upon WordPress initialization */
 		public function init() {
-			if ( is_admin() ) {
-				add_action( 'init', array( &$this, 'display_changelog_load_on_init' ) );
-			}
 			//If registered users can only comment and user is not logged in, skip loading the plugin.
 			include_once(ABSPATH . WPINC . '/pluggable.php');
 			if (get_option('comment_registration') == '1'){
@@ -336,42 +326,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 					return;
 				}
 			}
-			
-			
-	
-			//Run internal upgrade code for scripts/styles
-			$plugin_version = $this->get_admin_option( "version" );
-			$lang = $this->get_admin_option( 'WPLANG' );
-			$wpdebug = $this->get_admin_option( 'WP_DEBUG' );
-			
-			$upgrade_dependencies = false;
-			if ( !$plugin_version ) {
-				$upgrade_dependencies = true;
-			} 
-			//Upgrade scripts if someone changes WPLANG or WP_DEBUG constants
-			if ( defined( 'WPLANG' ) && $lang != WPLANG ) {
-				$this->save_admin_option( 'WPLANG', WPLANG );		
-				$upgrade_dependencies = true;
-			}
-			if ( defined( 'WP_DEBUG' ) && $wpdebug != WP_DEBUG ) {
-				$this->save_admin_option( 'WP_DEBUG', WP_DEBUG );		
-				$upgrade_dependencies = true;
-			}
-			$upload_dir = wp_upload_dir();
-			$aec_upload_base = $upload_dir[ 'basedir' ] . '/aec/';
-			if ( !file_exists( $aec_upload_base ) ) {
-				$upgrade_dependencies = true;
-			}
-			//todo - store lang and debug variables and check to see if they've changed - if so, update as wel
-			if ( version_compare( $this->version,  $plugin_version, '>' ) || $upgrade_dependencies ) {
-				$this->save_admin_option( 'version', $this->version );
-				//Upgrade our scripts and styles
-				if ( is_admin() ) {
-					$this->upgrade_dependencies();
-				} //end if is_admin
-			} //end version script/style upgrading
-			
-			
+					
 			//Initialize Addons	
 			do_action('aec-addons-init');
 			
@@ -448,9 +403,6 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			load_plugin_textdomain('ajaxEdit', false, 'wp-ajax-edit-comments/languages');
 			
 		}//end function init
-		public function display_changelog_load_on_init() {
-			add_action('install_plugins_pre_plugin-information', array( &$this->upgrade, 'display_changelog' ) );
-		}
 		public function init_upgrades() {
 			//Instantiate upgrades
 			$this->upgrade = new AECUpgrade();
