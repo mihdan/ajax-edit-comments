@@ -61,7 +61,6 @@ global $aecomments;
 if (!isset($aecomments)) { //for wp-load.php
 	include( '../lib/plugin-checker.php' );
 }
-
 //Check the nonce
 check_admin_referer('editcomment_' . (int)$_GET['cid']);
 $commentID = (int)$_GET['cid'];
@@ -89,10 +88,10 @@ do_action('add_wp_ajax_comments_css_editor');
 <title>WP Ajax Edit Comments Comment Editor</title>
 </head>
 <body class="hidden editor">
-<?php print_r( $commentAction ); ?>
+
 <div id="container">
 <?php
-if ( AECCore::is_comment_owner() ) : // Note:Josh Comment owner1234 
+if ( AECCore::is_comment_owner() ) : 
 ?>
 <div class="wrap">
 

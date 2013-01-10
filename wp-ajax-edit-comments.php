@@ -459,6 +459,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			}
 		} //end save_admin_options
 		
+		//todo - remove this function when done stripping out file updating
 		public function upgrade_dependencies() {
 			//Upgrade CSS
 			AECCSS::update_css_file( 'aec/edit-comments', 'main' );
