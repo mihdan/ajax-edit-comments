@@ -1,7 +1,6 @@
 <?php
 class AECJS {
-		public static function output_js( $handler, $dependencies = array(), $in_footer = false, $name, $type ) {
-			global $aecomments;
+		public static function output_js( $handler, $dependencies = array(), $in_footer = false ) {
 			//Output JS or enqueue depending on if a file exists or not
 			$js_uri = AECJS::get_js_url( $name, $type );
 			if ( is_wp_error( $js_uri ) ) {
@@ -10,56 +9,6 @@ class AECJS {
 				wp_enqueue_script( $handler, $js_uri, $dependencies, $aecomments->get_version(), $in_footer );
 			}
 		} //end output_interface_css
-		public static function update_js_file( $name, $type ) {
-			$path = AECJS::create_js_file( $name, $type );
-			if ( is_wp_error( $path ) ) {
-				return $path;
-			}
-			AECFile::write( $path, AECJS::get_js( $type ) );
-		} //end update_js_file
-		
-		public static function create_js_file( $name, $type ) {
-			$path = AECFile::get_writable_file( array( 'name' => $name, 'extension' => 'js' ) );
-			if ( is_wp_error( $path ) ) {
-				//File doesn't exist, try to create it
-				$args = array( 'name' => $name, 'extension' => 'js', 'create_new' => true );
-				$path = AECFile::create_writable_file( $args );
-				
-				//now try to write to it
-				
-				if ( !is_wp_error( $path ) ) {
-					AECFile::write( $path, AECJS::get_js( $type ) );
-				}
-			}
-			//Check to see if there's still an error
-			if ( is_wp_error( $path ) ) {
-				//Generate wp_error and pass back CSS as a string
-				$error = new WP_Error( 'aec_js_file', 'Could not create or read JS file' );
-				return $error;
-			} 
-			return $path;
-			
-		} //end create_css_file
-		public static function get_js_url( $name, $type ) {
-			global $aecomments;
-			$path = AECJS::create_js_file( $name, $type );
-			
-			if ( !is_wp_error( $path ) ) {
-				$js_url = AECFile::get_url_from_file( $path );
-				return $js_url;
-			} else {
-				return $path;
-			}
-		} //end get_js_url
-		public static function update_js( $name = '', $content = '') {
-			global $aecomments;
-			$path = AECFile::get_writable_file( array( 'name' => $name , 'extension' => 'js' ) );
-			if ( is_wp_error( $path ) || empty( $content ) ) {
-				$error = new WP_Error( 'aec_save_js', 'Could not save JS' );
-				return $error;
-			}
-			return AECFile::write( $path, $content );
-		}
 		public static function get_js( $type, $echo = false ) {
 			global $aecomments;
 			$min = $aecomments->get_admin_option( 'compressed_scripts' ) == 'true' ? ".min" : '';

@@ -32,7 +32,7 @@ class AECDependencies {
 			wp_register_script('jquery-tools', $aecomments->get_plugin_url() . '/js/jquery.tools.min.js', array('jquery',"jquery-ui-sortable"), $aecomments->get_version(), true);
 
 			//Admin scripts here
-			AECJS::output_js( 'aec_admin', array( 'jquery-tools' ), true, 'aec/admin', 'admin' );
+			AECJS::output_js( 'aec_admin', array( 'jquery-tools' ), true );
 		} //end add_admin_scripts
 		
 		
@@ -90,7 +90,7 @@ class AECDependencies {
 			if ( !is_admin() ) AECDependencies::load_frontend(false);
 			AECDependencies::queue_colorbox_script( $min, $load_footer );
 			//Output icon JS
-			AECJS::output_js( 'wp_ajax_edit_comments_script', array("jquery"), $load_footer, 'aec/ajax-edit-comments', 'icons ' );
+			AECJS::output_js( 'wp_ajax_edit_comments_script', array("jquery"), $load_footer );
 		} //end add_scripts
 		
 		public static function ajax_url() {
@@ -188,7 +188,7 @@ if ( typeof( ajaxurl == 'undefined' ) ) { var ajaxurl = '<?php echo esc_js( admi
 					$deps[] = "colorbox";
 				}
 			}
-			AECJS::output_js( 'aec_frontend', $deps, true, 'aec/frontend', 'frontend' );
+			AECJS::output_js( 'aec_frontend', $deps, true );
 		} //end load_frontend
 		
 		//Loads the after-the-deadline scripts
