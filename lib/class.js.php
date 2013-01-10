@@ -14,11 +14,10 @@ class AECJS {
 					wp_enqueue_script( $handler, $aecomments->get_plugin_url( "/js/wp-ajax-edit-comments$min.js" ), $dependencies, $aecomments->get_version(), $in_footer );
 					wp_localize_script( $handler, 'wpajaxeditcomments', AECDependencies::get_js_vars() );
 					break;
-				case "admin": /* Admin panel scripts */
+				case "aec_admin": /* Admin panel scripts */
 					//Admin panel sortables and tabs
-					include( $aecomments->get_plugin_dir( '/js/admin-panel.js' ) );
-					//Admin tab config
-					include( $aecomments->get_plugin_dir( '/js/tab-config.js' ) );
+					wp_enqueue_script( 'aec_admin_init', $aecomments->get_plugin_url( '/js/admin-panel.js' ), $dependencies, $aecomments->get_version(), $in_footer );
+					wp_enqueue_script( 'aec_admin_tabs', $aecomments->get_plugin_url( '/js/tab-config.js' ), array( 'aec_admin_init' ), $aecomments->get_version(), $in_footer );
 					break;
 				case "frontend": /* After the Deadline and Expand popup */
 					$atdlang = "true";
