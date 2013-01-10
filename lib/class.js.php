@@ -1,36 +1,24 @@
 <?php
 class AECJS {
 		public static function output_js( $handler, $dependencies = array(), $in_footer = false ) {
-			//Output JS or enqueue depending on if a file exists or not
-			$js_uri = AECJS::get_js_url( $name, $type );
-			if ( is_wp_error( $js_uri ) ) {
-				AECJS::get_js( $type, true ); //echo out
-			} else {
-				wp_enqueue_script( $handler, $js_uri, $dependencies, $aecomments->get_version(), $in_footer );
-			}
-		} //end output_interface_css
-		public static function get_js( $type, $echo = false ) {
+			AECJS::get_js( $handler, $dependencies, $in_footer ); //echo out
+		} //end output_js
+		
+		public static function get_js( $handler, $dependencies, $in_footer ) {
 			global $aecomments;
 			$min = $aecomments->get_admin_option( 'compressed_scripts' ) == 'true' ? ".min" : '';
 			$load_footer = ($aecomments->get_admin_option( 'scripts_in_footer' ) == "true" ? true: false);
-			
-			ob_start();
-			switch ( $type ) {
-				case "icons": /* Allows editing of icon items */
-					AECUtility::js_localize( 'wpajaxeditcomments',AECDependencies::get_js_vars(), true );
-					include( $aecomments->get_plugin_dir( "/js/wp-ajax-edit-comments$min.js" ) );
+
+			switch ( $handler ) {
+				case "wp_ajax_edit_comments_script": /* Allows editing of icon items */
+					wp_enqueue_script( $handler, $aecomments->get_plugin_url( "/js/wp-ajax-edit-comments$min.js" ), $dependencies, $aecomments->get_version(), $in_footer );
+					wp_localize_script( $handler, 'wpajaxeditcomments', AECDependencies::get_js_vars() );
 					break;
 				case "admin": /* Admin panel scripts */
-					//Upgrade script
-					AECUtility::js_localize('aec_check_upgrades', array('checking' => __('Checking...', 'ajaxEdit'),'checkupgrades' => __( 'Check for Upgrades','ajaxEdit' ) ), true );
-					//include( $aecomments->get_plugin_dir( 'js/check-upgrades.js' ) );
 					//Admin panel sortables and tabs
 					include( $aecomments->get_plugin_dir( '/js/admin-panel.js' ) );
 					//Admin tab config
 					include( $aecomments->get_plugin_dir( '/js/tab-config.js' ) );
-					//Support
-					AECUtility::js_localize('aecsupport', array('show' => __('show', 'ajaxEdit'),'hide' => __('hide','ajaxEdit')), true );
-					include( $aecomments->get_plugin_dir( '/js/support.js' ) );
 					break;
 				case "frontend": /* After the Deadline and Expand popup */
 					$atdlang = "true";
@@ -67,16 +55,6 @@ class AECJS {
 					include( $aecomments->get_plugin_dir( '/js/tab-config.js' ) );
 					break;
 			} //end switch
-			$content = ob_get_clean();
-			//Return content
-			if ( $echo ) {	
-				echo "<!--Ajax Edit Comments Scripts-->\n";
-				echo "<script type='text/javascript'>\n";
-				echo $content;
-				echo "\n</script>\n";
-			} else {
-				return $content;
-			}	
 		} //end get_interface_css
 		
 } //end AECJS
