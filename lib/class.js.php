@@ -25,7 +25,7 @@ class AECJS {
 					if (!$afterthedeadline) {
 						$atdlang = "false";
 					}	
-					$aec_frontend = 	$aecomments->get_admin_option( 'use_wpload' ) == 'true' ? $aecomments->get_plugin_url( '/views/comment-popup.php' ) : site_url( '/?aec_page=comment-popup.php' );
+					$aec_frontend = 	site_url( '/?aec_page=comment-popup.php' );
 					wp_enqueue_script( 'aec_atd', $aecomments->get_plugin_url( 'js/jquery.atd.textarea.js' ), $dependencies, $aecomments->get_version(), $in_footer );
 					wp_enqueue_script( 'aec_frontend', $aecomments->get_plugin_url( 'js/frontend.js' ), array( 'aec_atd' ), $aecomments->get_version(), $in_footer );
 					
