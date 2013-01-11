@@ -5,7 +5,7 @@
 <?php
 global $aecomments;
 if (!isset($aecomments)) { //for wp-load.php
-	include( '../lib/plugin-checker.php' );
+	die( 'Access Denied' );
 }
 do_action('aec-popup-box-head');
 AECCSS::output_interface_css();

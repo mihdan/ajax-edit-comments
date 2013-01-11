@@ -1,7 +1,7 @@
 <?php
 global $aecomments;
 if (!isset($aecomments)) { //for wp-load.php
-	include( '../lib/plugin-checker.php' );
+	die( 'Access Denied' );
 }
 if (isset($_GET['cid'])) {
 	check_admin_referer('email_' . (int)$_GET['cid']);

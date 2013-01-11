@@ -1,7 +1,7 @@
 <?php 
 global $aecomments;
 if (!isset($aecomments)) { //for wp-load.php
-	include( '../lib/plugin-checker.php' );
+	die( 'Access Denied' );
 }
 //Check the nonce
 if (isset($_GET['cid'])) {

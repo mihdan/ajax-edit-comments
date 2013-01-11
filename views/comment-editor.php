@@ -59,7 +59,7 @@ function aec_touch_time( $edit = 1, $for_post = 1, $tab_index = 0, $commentID = 
 } //aec_touch_time
 global $aecomments;
 if (!isset($aecomments)) { //for wp-load.php
-	include( '../lib/plugin-checker.php' );
+	die( 'Access Denied' );
 }
 //Check the nonce
 check_admin_referer('editcomment_' . (int)$_GET['cid']);
