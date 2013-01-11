@@ -7,7 +7,7 @@ Author: Ronald Huereca
 Version: 5.0.13
 Requires at least: 3.1
 Author URI: http://www.ronalfy.com
-Contributors:  Ronald Huereca
+Contributors:  Ronald Huereca, Ajay Dsouza, Josh Benham, and Glenn Ansley
 */ 
 
 if (!class_exists('WPrapAjaxEditComments')) {

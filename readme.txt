@@ -1,5 +1,5 @@
 === WP Ajax Edit Comments ===
-Contributors: Ajay, ronalfy
+Contributors: Ajay, ronalfy, joshben, blepoxp
 Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, edit, comment, admin
 Requires at least: 3.1
 Tested up to: 3.5
