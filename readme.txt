@@ -5,15 +5,16 @@ Requires at least: 3.1
 Tested up to: 3.5
 Stable tag: 5.0.13.0
 
-Users can edit their own comments for a limited time, while admins can edit all comments.
+Allow users to edit comments for a limited time, while admins can edit all comments.
 
 == Description ==
 
-Users can edit their own comments for a limited time, while admins can edit all comments.
+Ajax Edit Comments allows users to edit their own comments for a limited time.  Administrators can edit all comments on the front-end.
 
 = Features =
 <h4>Admin Features</h4>
-Please watch this video demonstrating the <a href='http://www.youtube.com/watch?v=b5-ViKb4hfY&fmt=22'>new admin features</a>.
+Please watch this video demonstrating the <a href='http://www.youtube.com/watch?v=b5-ViKb4hfY&fmt=22'>new admin features</a>.  Alternatively, read about <a href="https://github.com/ronalfy/ajax-edit-comments/wiki">the features on Github</a>.
+
 <ul>
 <li>Can edit all comments.</li>
 <li>Can move comments.</li>
