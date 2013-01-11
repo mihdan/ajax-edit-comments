@@ -81,7 +81,6 @@ if (isset($_POST['update'])) {
 		$options['delink_content'] = $_POST['delink_content'];
 		$options['expand_popups'] = $_POST['expand_popups'];
 		$options['expand_posts'] = $_POST['expand_posts'];
-		$options['use_wpload'] = $_POST['use_wpload'];
 		$options['allow_registeredediting'] = $_POST['allow_registeredediting'];
 		$options['atdlang'] = $_POST['atdlang'];
 		$options['request_deletion_behavior'] = $_POST['request_deletion_behavior'];
@@ -333,10 +332,7 @@ if (isset($_POST['update'])) {
     <p><strong><?php _e('Load Scripts in Footer? (Requires WordPress 2.8 or above and theme compatibility)', 'ajaxEdit') ?></strong></p>
     <p><label for="scripts_in_footer_yes"><input type="radio" id="scripts_in_footer_yes" name="scripts_in_footer" value="true" <?php if ($options['scripts_in_footer'] == "true") { echo('checked="checked"'); }?> /> <?php _e('Yes', 'ajaxEdit') ?></label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="scripts_in_footer_no"><input type="radio" id="scripts_in_footer_no" name="scripts_in_footer" value="false" <?php if ($options['scripts_in_footer'] == "false") { echo('checked="checked"'); }?>/> <?php _e('No', 'ajaxEdit') ?></label></p>
     <p><strong><?php _e('Use Compressed JavaScript Files?', 'ajaxEdit') ?></strong></p>
-    <p><label for="compressed_scripts_yes"><input type="radio" id="compressed_scripts_yes" name="compressed_scripts" value="true" <?php if ($options['compressed_scripts'] == "true") { echo('checked="checked"'); }?> /> <?php _e('Yes', 'ajaxEdit') ?></label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="compressed_scripts_no"><input type="radio" id="compressed_scripts_no" name="compressed_scripts" value="false" <?php if ($options['compressed_scripts'] == "false") { echo('checked="checked"'); }?>/> <?php _e('No', 'ajaxEdit') ?></label></p>
-    <p><strong><?php _e('Load wp-load.php Directly?', 'ajaxEdit') ?></strong></p>
-     <p><?php _e('Loading wp-load.php directly prevents most plugin conflicts.  It requires that the wp-content folder be in the default location.', 'ajaxEdit') ?></p>
-    <p><label for="use_wpload_yes"><input type="radio" id="use_wpload_yes" name="use_wpload" value="true" <?php if ($options['use_wpload'] == "true") { echo('checked="checked"'); }?> /> <?php _e('Yes', 'ajaxEdit') ?></label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="use_wpload_no"><input type="radio" id="use_wpload_no" name="use_wpload" value="false" <?php if ($options['use_wpload'] == "false") { echo('checked="checked"'); }?>/> <?php _e('No', 'ajaxEdit') ?></label></p>
+    <p><label for="compressed_scripts_yes"><input type="radio" id="compressed_scripts_yes" name="compressed_scripts" value="true" <?php if ($options['compressed_scripts'] == "true") { echo('checked="checked"'); }?> /> <?php _e('Yes', 'ajaxEdit') ?></label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="compressed_scripts_no"><input type="radio" id="compressed_scripts_no" name="compressed_scripts" value="false" <?php if ($options['compressed_scripts'] == "false") { echo('checked="checked"'); }?>/> <?php _e('No', 'ajaxEdit') ?></label></p>     
     </td>
   </tr>
   <tr valign="top">

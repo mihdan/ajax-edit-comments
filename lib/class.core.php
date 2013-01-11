@@ -18,34 +18,20 @@ class AECCore {
 			$comment = &get_comment( $commentID );
 			$ajax_url = admin_url( 'admin-ajax.php' ) . '?';
 			$plugin_url = $aecomments->get_plugin_url( '/views/' );
-			if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-				$ajax_url = admin_url( 'admin-ajax.php?' );
 			if (!AECCore::is_comment_owner($postID)) {
 				$edit_url = esc_url(wp_nonce_url(get_bloginfo('url') . "/?aec_page=comment-editor.php&action=editcomment&cid=$commentID&pid=$postID", "editcomment_$commentID")."&height=435&width=560");
-				if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-					$edit_url = esc_url(wp_nonce_url($plugin_url . "comment-editor.php?action=editcomment&cid=$commentID&pid=$postID", "editcomment_$commentID")."&height=435&width=560");
 			} else {
 				$edit_url = esc_url(wp_nonce_url(get_bloginfo('url') . "/?aec_page=comment-editor.php&action=editcomment&cid=$commentID&pid=$postID", "editcomment_$commentID")."&height=525&width=620");
-				if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-					$edit_url = esc_url(wp_nonce_url($plugin_url . "comment-editor.php?action=editcomment&cid=$commentID&pid=$postID", "editcomment_$commentID")."&height=525&width=620");
 			}
 			$move_comment_url = esc_url(wp_nonce_url(get_bloginfo('url') . "/?aec_page=move-comment.php&action=movecomment&pid=$postID&cid=$commentID", "movecomment_$commentID")."&height=500&width=560");
 			
-			if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-					$move_comment_url = esc_url(wp_nonce_url($plugin_url . "move-comment.php?action=movecomment&pid=$postID&cid=$commentID", "movecomment_$commentID")."&height=500&width=560");
 			$request_deletion_url = esc_url(wp_nonce_url(get_bloginfo('url') . "/?aec_page=request-deletion.php&action=requestdeletion&pid=$postID&cid=$commentID", "requestdeletion_$commentID")."&height=495&width=560");
-			if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-					$request_deletion_url = esc_url(wp_nonce_url($plugin_url . "request-deletion.php?action=requestdeletion&pid=$postID&cid=$commentID", "requestdeletion_$commentID")."&height=495&width=560");
 			$request_delete_url = esc_url( wp_nonce_url( $ajax_url . "action=requestdeletecomment&pid=$postID&cid=$commentID", "requestdeletecomment_$commentID" ) );
 			$spam_url = esc_url( wp_nonce_url( $ajax_url . "action=spamcomment&pid=$postID&cid=$commentID", "spamcomment_$commentID" ) );
 			$admin_email = get_bloginfo('admin_email');
 			$commenter_email = $comment->comment_author_email;
 			$email_url = esc_url(wp_nonce_url(get_bloginfo('url') . "/?aec_page=email.php&action=email&admin=$admin_email&commenter=$commenter_email&pid=$postID&cid=$commentID", "email_$commentID")."&height=500&width=600");
-			if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-					$email_url = esc_url(wp_nonce_url($plugin_url . "email.php?action=email&admin=$admin_email&commenter=$commenter_email&pid=$postID&cid=$commentID", "email_$commentID")."&height=500&width=600");
 			$blacklist_url = esc_url(wp_nonce_url(get_bloginfo('url') . "/?aec_page=blacklist-comment.php&action=blacklist&pid=$postID&cid=$commentID", "blacklist_$commentID")."&height=550&width=600");
-			if ($aecomments->get_admin_option( 'use_wpload' ) == 'true')
-					$blacklist_url = esc_url(wp_nonce_url($plugin_url . "blacklist-comment.php?action=blacklist&pid=$postID&cid=$commentID", "blacklist_$commentID")."&height=550&width=600");
 			$delete_url = esc_url( wp_nonce_url( $ajax_url . "action=deletecomment&pid=$postID&cid=$commentID", "deletecomment_$commentID" ) );
 			$restore_url = esc_url( wp_nonce_url( $ajax_url . "action=restore&pid=$postID&cid=$commentID", "restore_$commentID" ) );
 			$deleteperm_url = esc_url( wp_nonce_url( $ajax_url . "action=deleteperm&pid=$postID&cid=$commentID", "deleteperm_$commentID" ) );
