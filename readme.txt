@@ -1,5 +1,5 @@
 === WP Ajax Edit Comments ===
-Contributors: Ajay, ronalfy, Pluginbuddy Team
+Contributors: Ajay, ronalfy
 Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, edit, comment, admin
 Requires at least: 3.1
 Tested up to: 3.5
@@ -177,6 +177,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 == Upgrade Notice ==
 
+= 5.0.13.0 = 
+
+A ton of bug fixes, and changing the way scripts and styles are loaded.
+
 = 3.2.0.0 = 
 
 Resolves a colorbox conflict with WordPress 3.1.
@@ -198,7 +202,7 @@ Resolves a colorbox conflict with WordPress 3.1.
 1. Just unzip and upload the "wp-ajax-edit-comments" folder to your '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-From there, you and your users should be able to edit comments.  This plugin has been tested successfully on Internet Explorer 6-8, Firefox 2,3, and Safari for Mac.
+From there, you and your users should be able to edit comments.  This plugin has been tested successfully on the base Twenty Twelve theme for Internet Explorer 6-9, Firefox, Chrome, and Safari for Mac.
 
 Advanced customization options are available through the admin panel options.  
 
@@ -250,7 +254,9 @@ We strive for backwards compatibility, but can only support the plugin for the l
 
 = Can I provide a translation? =
 
-Not for this version.
+Sure.  If you're familiar with Git, head to the <a href="https://github.com/ronalfy/ajax-edit-comments">Ajax Edit Comments Github</a> and add your translation there.
+
+Alternatively, leave a thread with a downloadable version of your translation (both .po and .mo files are required).
 
 = Will you provide support for older versions of Ajax Edit Comments (1.x)? =
 
@@ -262,4 +268,4 @@ Yes, the last stable version for WP versions 2.1 - 2.5 is:  <a href="http://down
 
 = Is support free? =
 
-Yes please go to our support forum here for our free plugin support. http://ithemes.com/forum/forum/132-support-for-free-plugins/
+We'll do our best to answer your support question.  Just leave the support question via the forums on WP.org.
