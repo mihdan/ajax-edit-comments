@@ -435,9 +435,14 @@ class AECCore {
 			}
 			
 			//Check to see if the user is logged in and can indefinitely edit
-			if (AECCore::can_indefinitely_edit($comment['user_id'])) {
-				return 1;
+			if ( is_user_logged_in() ) {
+				global $current_user;
+				$user_id = $current_user->ID;
+				if ( $user_id == $comment[ 'user_id' ] && AECCore::can_indefinitely_edit( $comment[ 'user_id' ] ) ) {
+					return 1;
+				}
 			}
+			
 			
 			
 			//Now we check to see if there is any time remaining for comments
