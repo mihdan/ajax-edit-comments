@@ -1,9 +1,9 @@
 === WP Ajax Edit Comments ===
 Contributors: Ajay, ronalfy, Pluginbuddy Team
 Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, edit, comment, admin
-Requires at least: 2.8
+Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 5.0.10.0
+Stable tag: 5.0.13.0
 
 Users can edit their own comments for a limited time, while admins can edit all comments.
 
@@ -45,6 +45,11 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+= 5.0.13.0 =
+* Removed file storage capabilities of the plugin for JavaScript and CSS.  This should resolve problems for a majority of the users who don't have write permissions to their server.
+* Updated After the Deadline JavaScript file.
+* Fixed output buffer problem.
+
 = 5.0.10.0 =
 * Released 08 January 2013 by Ronald Huereca
 * Fixed WP 3.5 anonymous editing being disabled.

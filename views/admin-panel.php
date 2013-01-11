@@ -253,7 +253,7 @@ if (isset($_POST['update'])) {
     <tr valign="top">
   	<th scope="row"><?php _e('Advertising Text:', 'ajaxEdit') ?></th>
     <td>
-    <p><?php printf( __('This text will show when an anonymous commenter sees the editing options.  WordPress shortcodes may be used here <a href="%s">as described in this post</a>.', 'ajaxEdit'), 'http://wp.me/p1erxf-hf' ); ?></p>
+    <p><?php _e('This text will show when an anonymous commenter sees the editing options.  WordPress shortcodes may be used here.', 'ajaxEdit' ); ?></p>
     <p><textarea cols="100" rows="3" name="affiliate_text" id="affiliate_text"><?php _e(stripslashes(apply_filters('comment_edit_save', $options['affiliate_text'])), 'ajaxEdit')?></textarea></p>
     </td>
   </tr>

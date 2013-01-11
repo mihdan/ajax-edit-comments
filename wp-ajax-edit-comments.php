@@ -362,14 +362,14 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			add_action("wp_print_styles", array('AECDependencies',"load_frontend_css"));
 			add_action("wp_print_styles", array('AECDependencies',"add_css"));
 			add_action('admin_print_styles', array('AECDependencies',"add_css")); 
-			add_action('admin_print_styles-aec_page_wpaecsettings', array('AECDependencies', 'add_admin_panel_css'), 1000);
+			add_action('admin_print_styles-toplevel_page_wpaec', array('AECDependencies', 'add_admin_panel_css'), 1000);
 			//JavaScript
 			add_action('admin_print_scripts-index.php', array('AECDependencies','add_post_scripts'),1000); 
 			add_action('admin_print_scripts-edit-comments.php', array('AECDependencies','add_post_scripts'),1000); 
 			if ( !is_admin( ) ) add_action('wp_print_scripts', array('AECDependencies','add_post_scripts'),1000);
 			
 			//Admin exclusive JavaScript
-			add_action('admin_print_scripts-aec_page_wpaecsettings', array('AECDependencies', 'add_admin_scripts'), 1000);
+			add_action('admin_print_scripts-toplevel_page_wpaec', array('AECDependencies', 'add_admin_scripts'), 1000);
 			
 			
 			//Ajax stuff
