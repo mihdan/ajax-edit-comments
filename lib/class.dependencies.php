@@ -27,12 +27,9 @@ class AECDependencies {
 		/* Private - Adds JavaScript in the admin panel if admin has enabled the option */
 		//public static class.dependencies
 		public static function add_admin_scripts() {
-			global $aecomments;
-			
-			wp_register_script('jquery-tools', $aecomments->get_plugin_url() . '/js/jquery.tools.min.js', array('jquery',"jquery-ui-sortable"), $aecomments->get_version(), true);
 
 			//Admin scripts here
-			AECJS::output_js( 'aec_admin', array( 'jquery-tools' ), true );
+			AECJS::output_js( 'aec_admin', array( 'jquery-ui-sortable' ), true );
 		} //end add_admin_scripts
 		
 		
