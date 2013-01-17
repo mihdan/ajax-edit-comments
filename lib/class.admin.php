@@ -34,7 +34,8 @@ class AECAdmin {
 		} //end print_admin_page_cleanup
 		
 		public static function print_admin_page_permissions() {
-			die( 'permissions' );
-		}
+			global $aecomments;
+			include_once $aecomments->get_plugin_dir( '/views/admin-panel/permissions.php' );
+		} //end print_admin_page_permissions
 		
 }

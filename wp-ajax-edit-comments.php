@@ -455,19 +455,6 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			}
 		} //end save_admin_options
 		
-		//todo - remove this function when done stripping out file updating
-		public function upgrade_dependencies() {
-			//Upgrade CSS
-			AECCSS::update_css_file( 'aec/edit-comments', 'main' );
-			AECCSS::update_css_file( 'aec/comment-editor', 'interface' );
-			
-			//Upgrade JS
-			AECJS::update_js_file( 'aec/admin', 'admin' );
-			AECJS::update_js_file( 'aec/ajax-edit-comments', 'icons' );
-			AECJS::update_js_file( 'aec/frontend', 'frontend' );
-			AECJS::update_js_file( 'aec/popups', 'popups' );
-		} //end upgrade_dependencies
-		
     } //end class
 }
 //instantiate the class
