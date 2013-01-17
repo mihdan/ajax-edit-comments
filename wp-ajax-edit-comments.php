@@ -93,6 +93,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 , array("AECFilters", 'add_settings_link'), -10);
 			
 		} //end constructor
+		
 		//Returns a network or localized admin option
 		public function get_admin_option( $key = '' ) {			
 			$admin_options = $this->get_admin_options( apply_filters( 'aec_network_option', false ) );
@@ -332,7 +333,6 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			
 			$this->plugin_url = apply_filters('aec-addons-plugin-directory', $this->get_plugin_url());
 			
-			//todo - code function get_colorbox_params
 			$this->colorbox_params['script_handler'] = apply_filters('aec-colorbox-script-name', 'colorbox');
 			$this->colorbox_params['style_handler'] = apply_filters('aec-colorbox-style-name', 'colorbox');
 			
@@ -362,15 +362,11 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			add_action("wp_print_styles", array('AECDependencies',"load_frontend_css"));
 			add_action("wp_print_styles", array('AECDependencies',"add_css"));
 			add_action('admin_print_styles', array('AECDependencies',"add_css")); 
-			add_action('admin_print_styles-toplevel_page_wpaec', array('AECDependencies', 'add_admin_panel_css'), 1000);
+			
 			//JavaScript
 			add_action('admin_print_scripts-index.php', array('AECDependencies','add_post_scripts'),1000); 
 			add_action('admin_print_scripts-edit-comments.php', array('AECDependencies','add_post_scripts'),1000); 
-			if ( !is_admin( ) ) add_action('wp_print_scripts', array('AECDependencies','add_post_scripts'),1000);
-			
-			//Admin exclusive JavaScript
-			add_action('admin_print_scripts-toplevel_page_wpaec', array('AECDependencies', 'add_admin_scripts'), 1000);
-			
+			if ( !is_admin( ) ) add_action('wp_print_scripts', array('AECDependencies','add_post_scripts'),1000);			
 			
 			//Ajax stuff
 			AECAjax::initialize_actions();
