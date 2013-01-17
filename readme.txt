@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.5
 License: GPLv2 or later
-Stable tag: 5.0.13.0
+Stable tag: 5.0.20.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -47,7 +47,12 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+= 5.0.20.0 = 
+* Released 17 January 2013 by Ronald Huereca
+* Revised admin panel options into sub-pages instead of tabs.
+
 = 5.0.13.0 =
+* Released 11 January 2013 by Ronald Huereca
 * Removed file storage capabilities of the plugin for JavaScript and CSS.  This should resolve problems for a majority of the users who don't have write permissions to their server.
 * Updated After the Deadline JavaScript file.
 * Fixed output buffer problem.
@@ -178,6 +183,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.20.0 =
+
+Revised admin panel options into sub-pages instead of tabs.
 
 = 5.0.13.0 = 
 
