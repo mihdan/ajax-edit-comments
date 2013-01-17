@@ -33,53 +33,38 @@ if (isset($_POST['update'])) {
 		}
 	}
 	
-		//Update global settings
-		$options['allow_editing'] = $_POST['allow_editing'];
-		$options['allow_editing_after_comment'] = $_POST['allow_editing_after_comment'];
-		$options['spam_text'] = apply_filters('pre_comment_content',apply_filters('comment_save_pre', $_POST['spam_text']));
-		$options['show_timer'] = $_POST['show_timer'];
-		$options['show_pages'] = $_POST['show_pages'];
-		$options['email_edits'] = $_POST['email_edits'];
-		$options['spam_protection'] = $_POST['spam_protection'];
-		$options['use_mb_convert'] = $_POST['use_mb_convert'];
-		$options['registered_users_edit'] = $_POST['registered_users_edit'];
-		$options['registered_users_name_edit'] = $_POST['registered_users_name_edit'];
-		$options['registered_users_url_edit'] = $_POST['registered_users_url_edit'];
-		$options['registered_users_email_edit'] = $_POST['registered_users_email_edit'];
-		$options['allow_email_editing'] = $_POST['allow_email_editing'];
-		$options['allow_url_editing'] = $_POST['allow_url_editing'];
-		$options['use_rtl'] = "false";
-		$options['allow_name_editing'] = $_POST['allow_name_editing'];
-		$options['clear_after'] = $_POST['clear_after'];
-		$options['javascript_scrolling'] = $_POST['javascript_scrolling'];
-		$options['comment_display_top'] = stripslashes_deep(trim($_POST['comment_display_top']));
-		$options['icon_display'] = $_POST['icon_display'];
-		$options['icon_set'] = $_POST['icon_set'];
-		$options['affiliate_text'] = apply_filters('pre_comment_content',apply_filters('comment_save_pre', $_POST['affiliate_text']));
-		$options['affiliate_show'] = $_POST['affiliate_show'];
-		$options['scripts_in_footer'] = $_POST['scripts_in_footer'];
-		$options['compressed_scripts'] = $_POST['compressed_scripts'];
-		$options['after_deadline_posts'] = $_POST['after_deadline_posts'];
-		$options['after_deadline_popups'] = $_POST['after_deadline_popups'];
-		$options['disable_trackbacks'] = $_POST['disable_trackbacks'];
-		$options['disable_nofollow'] = $_POST['disable_nofollow'];
-		$options['disable_selfpings'] = $_POST['disable_selfpings'];
-		$options['delink_content'] = $_POST['delink_content'];
-		$options['expand_popups'] = $_POST['expand_popups'];
-		$options['expand_posts'] = $_POST['expand_posts'];
-		$options['allow_registeredediting'] = $_POST['allow_registeredediting'];
-		$options['atdlang'] = $_POST['atdlang'];
-		$options['request_deletion_behavior'] = $_POST['request_deletion_behavior'];
-		$options['allow_editing_editors'] = $_POST['allow_editing_editors'];
-		$options['enable_colorbox'] = $_POST['enable_colorbox'];
-		$options['colorbox_width'] = absint( $_POST['colorbox_width'] );
-		$options['colorbox_height'] = absint( $_POST['colorbox_height'] );
-		
-		$updated = true;
-	}
-	if ($updated && !$error) {
-		$aecomments->set_user_option( AECUtility::get_user_email() , $author_options );
-		$aecomments->save_admin_options( $options );
+	//Update global settings
+	$options['allow_editing_after_comment'] = $_POST['allow_editing_after_comment'];
+	$options['spam_text'] = apply_filters('pre_comment_content',apply_filters('comment_save_pre', $_POST['spam_text']));
+	$options['email_edits'] = $_POST['email_edits'];
+	$options['spam_protection'] = $_POST['spam_protection'];
+	$options['use_mb_convert'] = $_POST['use_mb_convert'];
+	$options['registered_users_edit'] = $_POST['registered_users_edit'];
+	$options['registered_users_name_edit'] = $_POST['registered_users_name_edit'];
+	$options['registered_users_url_edit'] = $_POST['registered_users_url_edit'];
+	$options['registered_users_email_edit'] = $_POST['registered_users_email_edit'];
+	$options['allow_email_editing'] = $_POST['allow_email_editing'];
+	$options['allow_url_editing'] = $_POST['allow_url_editing'];
+	$options['use_rtl'] = "false";
+	$options['allow_name_editing'] = $_POST['allow_name_editing'];
+	$options['affiliate_text'] = apply_filters('pre_comment_content',apply_filters('comment_save_pre', $_POST['affiliate_text']));
+	$options['affiliate_show'] = $_POST['affiliate_show'];
+	$options['scripts_in_footer'] = $_POST['scripts_in_footer'];
+	$options['compressed_scripts'] = $_POST['compressed_scripts'];
+	$options['after_deadline_posts'] = $_POST['after_deadline_posts'];
+	$options['after_deadline_popups'] = $_POST['after_deadline_popups'];
+	$options['disable_trackbacks'] = $_POST['disable_trackbacks'];
+	$options['disable_nofollow'] = $_POST['disable_nofollow'];
+	$options['disable_selfpings'] = $_POST['disable_selfpings'];
+	$options['delink_content'] = $_POST['delink_content'];
+	$options['expand_popups'] = $_POST['expand_popups'];
+	$options['expand_posts'] = $_POST['expand_posts'];
+	$options['atdlang'] = $_POST['atdlang'];
+	$options['request_deletion_behavior'] = $_POST['request_deletion_behavior'];
+	$updated = true;
+}
+if ($updated && !$error) {
+	$aecomments->save_admin_options( $options );
 	?>
 <div class="updated"><p><strong><?php _e('Settings successfully updated.', 'ajaxEdit') ?></strong></p></div>
 <?php
