@@ -20,7 +20,8 @@ class AECAdmin {
 		}
 		
 		public static function print_admin_page_appearance() {
-			die( 'appearance' );
+			global $aecomments;
+			include_once $aecomments->get_plugin_dir( '/views/admin-panel/appearance.php' );
 		} //end print_admin_page_appearance
 		
 		public static function print_admin_page_behavior() {

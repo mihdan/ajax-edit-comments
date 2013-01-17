@@ -1,7 +1,4 @@
 <?php 
-/* Admin Panel Code - Created on April 19, 2008 by Ronald Huereca 
-Last modified on May 23, 2010
-*/
 global $wpdb,$aecomments, $user_email;
 if ( !is_a( $aecomments, 'WPrapAjaxEditComments' ) && !current_user_can( 'administrator' ) ) 
 	die('');
