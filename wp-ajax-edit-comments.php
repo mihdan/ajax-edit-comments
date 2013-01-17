@@ -225,9 +225,11 @@ if (!class_exists('WPrapAjaxEditComments')) {
 				$this->save_admin_options();								
 			}
 			//Serve uncompressed scripts when WP is in debug mode
-			if ( defined( 'WP_DEBUG' ) && WP_DEBUG == 'true' ) {
+			if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG == true ) {
 				$this->admin_options['compressed_scripts'] = 'false';
 			}
+
+			
 			return $this->admin_options;
 		} //end get_admin_options
 		
