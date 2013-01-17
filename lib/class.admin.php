@@ -25,7 +25,7 @@ class AECAdmin {
 		
 		public static function print_admin_page_behavior() {
 			global $aecomments;
-			include_once $aecomments->get_plugin_dir( '/views/admin-panel.php' );
+			include_once $aecomments->get_plugin_dir( '/views/admin-panel/behavior.php' );
 		} //end print_admin_page_behavior
 		
 		public static function print_admin_page_cleanup() {
