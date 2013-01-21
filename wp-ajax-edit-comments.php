@@ -395,7 +395,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			
 			
 			//* Localization Code */
-			load_plugin_textdomain('ajaxEdit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( 'ajaxEdit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 			
 		}//end function init
 		
