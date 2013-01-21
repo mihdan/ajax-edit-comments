@@ -55,6 +55,7 @@ class AECCore {
 			} else {
 				$edit_admin = "edit-comment-admin-links-no-icon";
 				$timer_class = "ajax-edit-time-left-no-icon";
+				$request_deletion_class = "request-deletion-comment";
 			}
 			if ($aecomments->get_admin_option( 'clear_after' ) == 'true') {
 				$clearfix = "clearfix";
