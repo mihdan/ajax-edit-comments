@@ -190,6 +190,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 == Upgrade Notice ==
 
+= 5.0.21.0 =
+Added respect for the `moderate_comments` capability.  Fixed internationalization issues.
+
 = 5.0.20.0 =
 
 Revised admin panel options into sub-pages instead of tabs.
