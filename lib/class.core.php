@@ -745,7 +745,10 @@ class AECCore {
 			if (current_user_can('edit_users')) {
 				$aecomments->admin = true;
 				return true;
-			} elseif( current_user_can( 'edit_page', $postID) || current_user_can( 'edit_post', $postID)) {
+			} elseif( current_user_can( 'edit_page', $postID) || current_user_can( 'edit_post', $postID)) { /*author privs */
+				$aecomments->admin = false;
+				return true;
+			} elseif( current_user_can( 'moderate_comments' ) ) {
 				$aecomments->admin = false;
 				return true;
 			}
