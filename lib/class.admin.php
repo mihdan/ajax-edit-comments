@@ -6,10 +6,10 @@ class AECAdmin {
 			if ( AECCore::is_multisite() ) $capabilities = 'manage_network';
 			$admin_hooks = array();
 			$admin_hooks[] = add_menu_page( 'Ajax Edit Comments', 'AEC', $capabilities, 'wpaec', array("AECAdmin", 'print_admin_page_behavior'), $aecomments->get_plugin_url( 'images/menu-icon.png' ) );
-			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Behavior', 'wpAjax' ), __( 'Behavior', 'wpAjax' ), $capabilities, 'wpaec', array( 'AECAdmin', 'print_admin_page_behavior' ) );
-			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Appearance', 'wpAjax' ), __( 'Appearance', 'wpAjax' ), $capabilities, 'aecappearance', array( 'AECAdmin', 'print_admin_page_appearance' ) );
-			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Permissions', 'wpAjax' ), __( 'Permissions', 'wpAjax' ), $capabilities, 'aecpermissions', array( 'AECAdmin', 'print_admin_page_permissions' ) );
-			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Cleanup', 'wpAjax' ), __( 'Cleanup', 'wpAjax' ), $capabilities, 'aeccleanup', array( 'AECAdmin', 'print_admin_page_cleanup' ) );
+			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Behavior', 'ajaxEdit' ), __( 'Behavior', 'ajaxEdit' ), $capabilities, 'wpaec', array( 'AECAdmin', 'print_admin_page_behavior' ) );
+			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Appearance', 'ajaxEdit' ), __( 'Appearance', 'ajaxEdit' ), $capabilities, 'aecappearance', array( 'AECAdmin', 'print_admin_page_appearance' ) );
+			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Permissions', 'ajaxEdit' ), __( 'Permissions', 'ajaxEdit' ), $capabilities, 'aecpermissions', array( 'AECAdmin', 'print_admin_page_permissions' ) );
+			$admin_hooks[] = add_submenu_page( 'wpaec', __( 'Cleanup', 'ajaxEdit' ), __( 'Cleanup', 'ajaxEdit' ), $capabilities, 'aeccleanup', array( 'AECAdmin', 'print_admin_page_cleanup' ) );
 
 			
 			foreach( $admin_hooks as $hook ) {
