@@ -7,6 +7,8 @@ global $aecomments;
 if (!isset($aecomments)) { //for wp-load.php
 	die( 'Access Denied' );
 }
+load_plugin_textdomain( 'ajaxEdit', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' ); //For language purposes, this doesn't seem to run when a user first leaves a comment.
+
 do_action('aec-popup-box-head');
 AECCSS::output_interface_css();
 AECJS::register_popups_js( 'comment-popup' );
