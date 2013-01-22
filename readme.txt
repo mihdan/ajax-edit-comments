@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.5
 License: GPLv2 or later
-Stable tag: 5.0.21.0
+Stable tag: 5.0.24.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -47,6 +47,11 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.24.0 =
+* Released 22 January 2013 by Ronald Huereca
+* New feature - Move comments by post types (instead of just posts)
+* Improved internationalization
 
 = 5.0.21.0 =
 * Released 21 January 2013 by Ronald Huereca
@@ -189,6 +194,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.24.0 =
+Added a new feature for moving comments.  You can now move comments for all post types.
 
 = 5.0.21.0 =
 Added respect for the `moderate_comments` capability.  Fixed internationalization issues.
