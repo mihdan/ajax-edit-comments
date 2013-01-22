@@ -650,7 +650,8 @@ class AECAjax {
 		//public static class.ajax
 		public static function get_posts_by_id($id) {
 			global $wpdb;
-			$results = $wpdb->get_row( $wpdb->prepare( "select * from $wpdb->posts where post_type = 'post' and post_status = 'publish' and ID = %d", $id ), ARRAY_A);
+			$post_type = get_post_type( $id );
+			$results = $wpdb->get_row( $wpdb->prepare( "select * from $wpdb->posts where post_type = %s and post_status = 'publish' and ID = %d", $post_type, $id ), ARRAY_A);
 			if ($results) {
 				$response_arr['posts'] = array(
 					'post_id' => $results['ID'],
