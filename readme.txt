@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.5
 License: GPLv2 or later
-Stable tag: 5.0.24.0
+Stable tag: 5.0.25.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -47,6 +47,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.25.0 =
+* Released 25 February 2013 by Ronald Huereca
+* Fixing bug where options would not save in multisite.
 
 = 5.0.24.0 =
 * Released 22 January 2013 by Ronald Huereca
@@ -194,6 +198,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.25.0 = 
+Fixing a bug where options wouldn't save in multisite.
 
 = 5.0.24.0 =
 Added a new feature for moving comments.  You can now move comments for all post types.
