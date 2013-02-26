@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.5
 License: GPLv2 or later
-Stable tag: 5.0.25.0
+Stable tag: 5.0.26.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -47,6 +47,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.26.0 = 
+* Released 26 February 2013 by Ronald Huereca
+* Added Dutch and French language files
 
 = 5.0.25.0 =
 * Released 25 February 2013 by Ronald Huereca
@@ -198,6 +202,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.26.0 =
+Added Dutch and French language files
 
 = 5.0.25.0 = 
 Fixing a bug where options wouldn't save in multisite.
