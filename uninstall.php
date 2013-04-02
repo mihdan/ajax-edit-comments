@@ -11,5 +11,9 @@ if ( !defined('ABSPATH') && !defined('WP_UNINSTALL_PLUGIN') ) {
 	$wpdb->query($sql);
 	
 	delete_option('WPAjaxEditAuthoruserOptions');
+	delete_option( 'WPAjaxEditAuthoruser_options' );
 	delete_option('WPAjaxEditComments20');
+	delete_site_option( 'WPAjaxEditAuthoruserOptions' );
+	delete_site_option( 'WPAjaxEditAuthoruser_options' );
+	delete_site_option( 'WPAjaxEditComments20' );
 ?>
