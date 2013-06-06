@@ -2,9 +2,9 @@
 Contributors: Ajay, ronalfy, joshben, blepoxp
 Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, edit, comment, admin
 Requires at least: 3.1
-Tested up to: 3.5
+Tested up to: 3.6
 License: GPLv2 or later
-Stable tag: 5.0.26.0
+Stable tag: 5.0.27.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -47,6 +47,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.27.0 =
+* Released 06 June 2013 by Ronald Huereca
+* Updated colorbox for WP 3.6 compatibility.
 
 = 5.0.26.0 = 
 * Released 26 February 2013 by Ronald Huereca
@@ -202,6 +206,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.27.0 =
+Updated colorbox for WP 3.6 compatibility.
 
 = 5.0.26.0 =
 Added Dutch and French language files

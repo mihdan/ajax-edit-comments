@@ -4,7 +4,7 @@ Plugin Name: Ajax Edit Comments
 Plugin URI: http://wordpress.org/extend/plugins/wp-ajax-edit-comments/
 Description: Ajax Edit Comments allows users to edit their comments for a period of time. Administrators have a lot more features, such as the ability to edit comments directly on a post or page.
 Author: Ronald Huereca
-Version: 5.0.26.0
+Version: 5.0.27.0
 Requires at least: 3.1
 Author URI: http://www.ronalfy.com
 Contributors:  Ronald Huereca, Ajay Dsouza, Josh Benham, and Glenn Ansley
@@ -25,7 +25,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 		private $admin_options = array();
 		private $errors = '';
 		private $minutes = 5; 
-		private $version = "5.0.26";
+		private $version = "5.0.27";
 		private $colorbox_params = array();
 		private $plugin_url = '';
 		private $plugin_dir = '';
