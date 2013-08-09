@@ -27,7 +27,7 @@ If interested, visit the <a href="https://github.com/ronalfy/ajax-edit-comments"
 
 = Looking for Just Comment Editing? =
 
-Check out a "lite" version of this plugin called <a href="http://www.wptavern.com/plugin-review-simple-comment-editing">Simple Comment Editing</a>.  Check out the <a href="http://www.wptavern.com/plugin-review-simple-comment-editing">WPTavern review</a> for more information.
+Check out a "lite" version of this plugin called <a href="http://wordpress.org/plugins/simple-comment-editing/">Simple Comment Editing</a>.  Check out the <a href="http://www.wptavern.com/plugin-review-simple-comment-editing">WPTavern review</a> for more information.
 
 = Features =
 <h4>Admin Features</h4>
