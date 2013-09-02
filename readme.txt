@@ -67,7 +67,7 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 = 5.0.29.0 =
 * Released 02 September 2013 by Ronald Huereca
-* Fixing SSL error when FORCE_SSL_ADMIN is set to true.
+* Fixing SSL error when FORCE_SSL_ADMIN is set to true. See trac ticket: http://buddypress.trac.wordpress.org/ticket/4761
 
 = 5.0.28.0 =
 * Released 09 August 2013 by Ronald Huereca
@@ -235,8 +235,6 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 = 5.0.29.0 =
 Fixing SSL error when FORCE_SSL_ADMIN is set to true.
-
-See trac ticket: http://buddypress.trac.wordpress.org/ticket/4761
 
 = 5.0.28.0 =
 Minor performance improvements when checking for comment editing permissions.  Added simplied chinese language.
