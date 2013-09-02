@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.6
 License: GPLv2 or later
-Stable tag: 5.0.28.0
+Stable tag: 5.0.29.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -64,6 +64,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.29.0 =
+* Released 02 September 2013 by Ronald Huereca
+* Fixing SSL error when FORCE_SSL_ADMIN is set to true.
 
 = 5.0.28.0 =
 * Released 09 August 2013 by Ronald Huereca
@@ -229,6 +233,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 == Upgrade Notice ==
 
+= 5.0.29.0 =
+Fixing SSL error when FORCE_SSL_ADMIN is set to true.
+
 = 5.0.28.0 =
 Minor performance improvements when checking for comment editing permissions.  Added simplied chinese language.
 
@@ -281,6 +288,10 @@ From there, you and your users should be able to edit comments.  This plugin has
 Advanced customization options are available through the admin panel options.  
 
 == Frequently Asked Questions ==
+
+= I have an "XYZ" problem with the plugin. =
+
+We're looking for a new contributor to this plugin.  All the current contributors no longer have the time to maintain this project.  If you're interested, <a href="https://github.com/ronalfy/ajax-edit-comments">fork the project on GitHub</a> and submit a pull request. 
 
 = I installed the plugin and the edit buttons aren't shown or the colorbox popup is off = 
 
