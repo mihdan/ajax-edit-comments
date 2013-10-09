@@ -54,7 +54,7 @@ class AECAjax {
 			$commentID = AECAjax::get_comment_id();
 			AECAjax::maybe_change_comment_status( $commentID, $postID );
 			$comment = get_comment($commentID, ARRAY_A);
-			$comment['comment_content'] = trim(urldecode($_POST['comment_content']));
+			$comment['comment_content'] = trim($_POST['comment_content']);
 			if (AECCore::can_edit_name($commentID, $postID)) {
 				$comment['comment_author'] = trim(strip_tags(urldecode($_POST['comment_author'])));
 			}
@@ -876,7 +876,7 @@ class AECAjax {
 			//Condition the data for returning
 			do_action('wp_ajax_comments_remove_content_filter');
 			$response = array(
-						'content' => stripslashes(apply_filters('comment_text',apply_filters('get_comment_text',AECUtility::encode($comment->comment_content)))),
+						'content' => apply_filters('comment_text',apply_filters('get_comment_text',AECUtility::encode($comment->comment_content))),
 						'comment_author' => stripslashes(apply_filters('comment_author', apply_filters('get_comment_author', AECUtility::encode($comment->comment_author)))),
 						'comment_author_url' => stripslashes(apply_filters('comment_url', apply_filters('get_comment_author_url', $comment->comment_author_url))),
 						'comment_date' =>  get_comment_date('F jS, Y'),

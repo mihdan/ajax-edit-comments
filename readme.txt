@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.6
 License: GPLv2 or later
-Stable tag: 5.0.30.0
+Stable tag: 5.0.35.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
@@ -41,7 +41,6 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 <li>Undo functionality for most editing options.</li>
 <li>Can choose different icon sets for use on your blog.</li>
 <li>Dropdown menu to de-clutter the interface.</li>
-<li>Improved RTL support.</li>
 <li>Various admin-panel options including<ul><li>Can edit comment time.</li><li>Can specify anonymous user options.</li><li>Can specify logged-in user options.</li><li>Can choose between Akismet and Defensio for spam protection.</li><li>Can disable timer.</li><li>And much, much more...</li></ul></li>
 </ul>
 <h4>Anonymous User Features</h4>
@@ -64,6 +63,12 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.35.0 =
+* Released 09 October 2013 by Ronald Huereca
+* Added Persian translation
+* Fixed AEC showing up in feeds
+* Fixed JavaScript bug with slashes
 
 = 5.0.30.0 =
 * Released 06 September 2013 by Ronald Huereca
@@ -232,6 +237,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.35.0 =
+Added Persian translation. Fixed AEC showing up in feeds. Fixed JavaScript bug with slashes.
 
 = 5.0.29.0 =
 Fixing SSL error when FORCE_SSL_ADMIN is set to true.
