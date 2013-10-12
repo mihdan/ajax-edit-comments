@@ -165,7 +165,7 @@ function(data){
     var name = encodeURIComponent($j("#name").attr("value"));
     var email = encodeURIComponent($j("#e-mail").attr("value"));
     var url = encodeURIComponent($j("#URL").attr("value"));
-    var comment = $j("#comment").attr("value"); 
+    var comment = encodeURIComponent($j("#comment").attr("value")); 
     var nonce = $j("#_wpnonce").attr("value");
 	var data = {	action: "savecomment", cid: parseInt($j("#commentID").attr("value")) ,pid: parseInt($j("#postID").attr("value")), _ajax_nonce: $j('#_wpnonce').val(), comment_content: comment, comment_author: name, comment_author_email: email, comment_author_url: url };
 	//Comment Status

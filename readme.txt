@@ -4,13 +4,17 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 3.6
 License: GPLv2 or later
-Stable tag: 5.0.35.0
+Stable tag: 5.0.36.0
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
 == Description ==
 
 Ajax Edit Comments allows users to edit their own comments for a limited time.  Administrators can edit all comments on the front-end.
+
+= Looking for Just Comment Editing? =
+
+Check out a "lite" version of this plugin called <a href="http://wordpress.org/plugins/simple-comment-editing/">Simple Comment Editing</a>.  Check out the <a href="http://www.wptavern.com/plugin-review-simple-comment-editing">WPTavern review</a> for more information.
 
 = Looking for a new Contributor =
 We're looking for a new contributor to this plugin.  All the current contributors no longer have the time to maintain this project.  If you're interested, <a href="https://github.com/ronalfy/ajax-edit-comments">fork the project on GitHub</a> and submit a pull request.  
@@ -25,9 +29,6 @@ Here are some things that need to be worked on:
 
 If interested, visit the <a href="https://github.com/ronalfy/ajax-edit-comments">Ajax Edit Comments GitHub project page</a>.
 
-= Looking for Just Comment Editing? =
-
-Check out a "lite" version of this plugin called <a href="http://wordpress.org/plugins/simple-comment-editing/">Simple Comment Editing</a>.  Check out the <a href="http://www.wptavern.com/plugin-review-simple-comment-editing">WPTavern review</a> for more information.
 
 = Features =
 <h4>Admin Features</h4>
@@ -63,6 +64,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+= 5.0.36.0 =
+* Released 12 October 2013 by Ronald Huereca
+* Rolled back JavaScript slashes functionality
 
 = 5.0.35.0 =
 * Released 09 October 2013 by Ronald Huereca
@@ -237,6 +241,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.36.0 =
+Rolled back JavaScript slashes functionality
 
 = 5.0.35.0 =
 Added Persian translation. Fixed AEC showing up in feeds. Fixed JavaScript bug with slashes.
