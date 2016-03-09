@@ -392,7 +392,7 @@ class AECCore {
 		Returns - Enumeration (0=unsuccessful,1=successful,or string error code)
 		*/
 		//public static class.core
-		function can_edit($commentID = 0, $postID = 0) {
+		public static function can_edit($commentID = 0, $postID = 0) {
 			global $wpdb, $aecomments;
 			
 			//Check if admin/editor/post author
