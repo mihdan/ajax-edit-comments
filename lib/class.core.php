@@ -15,7 +15,7 @@ class AECCore {
 		public static function build_admin_links($commentID, $postID, $content = '') {
 			global $aecomments;
 			
-			$comment = &get_comment( $commentID );
+			$comment = get_comment( $commentID );
 			$ajax_url = admin_url( 'admin-ajax.php' ) . '?';
 			$plugin_url = $aecomments->get_plugin_url( '/views/' );
 			if (!AECCore::is_comment_owner($postID)) {
