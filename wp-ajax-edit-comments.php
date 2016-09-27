@@ -19,7 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if (!class_exists('WPrapAjaxEditComments')) {
+if ( ! class_exists( 'WPrapAjaxEditComments' ) ) {
+
+	/**
+	 * Class WPrapAjaxEditComments
+	 */
 	class WPrapAjaxEditComments {
 		//public
 		public $admin = false;	
