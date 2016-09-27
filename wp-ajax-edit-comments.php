@@ -16,7 +16,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // silent is gold.
 }
 
 if (!class_exists('WPrapAjaxEditComments')) {
@@ -55,7 +55,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			$this->plugin_basename = plugin_basename( __FILE__  );
 			
 			//Include Classes
-			include_once ('lib/class.file.php');
+			include_once('lib/class.file.php');
 			include_once('lib/class.actions.php');
 			include_once('lib/class.admin.php');
 			include_once('lib/class.ajax.php');
