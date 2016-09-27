@@ -1,10 +1,10 @@
 === WP Ajax Edit Comments ===
-Contributors: Ajay, ronalfy, joshben, blepoxp
+Contributors: Ajay, ronalfy, joshben, blepoxp, mihdan
 Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, edit, comment, admin, adopt-me
 Requires at least: 3.1
 Tested up to: 4.1
 License: GPLv2 or later
-Stable tag: 5.0.36.1
+Stable tag: 5.0.36.3
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
