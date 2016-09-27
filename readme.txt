@@ -4,7 +4,7 @@ Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, 
 Requires at least: 3.1
 Tested up to: 4.1
 License: GPLv2 or later
-Stable tag: 5.0.36.0
+Stable tag: 5.0.36.1
 
 Allow users to edit comments for a limited time, while admins can edit all comments.
 
