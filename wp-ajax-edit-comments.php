@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if (!class_exists('WPrapAjaxEditComments')) {
-    class WPrapAjaxEditComments	{	
+	class WPrapAjaxEditComments {
 		//public
 		public $admin = false;	
 		public $skip = false;
@@ -40,8 +40,11 @@ if (!class_exists('WPrapAjaxEditComments')) {
 		//Variables for iThemes integration
 		public $_defaults = array();
 		public $_version = '';
-		public $_var = '';		
-		
+		public $_var = '';
+
+
+		public $_options = array();
+
 		/**
 		* PHP 5 Constructor
 		*/		
@@ -244,7 +247,9 @@ if (!class_exists('WPrapAjaxEditComments')) {
 		
 		//Returns an array of "all" user options
 		private function get_all_user_options() {
-			if (!function_exists("get_currentuserinfo")) { return; }
+			if ( ! function_exists( "get_currentuserinfo" ) ) {
+				return array();
+			}
 			if (empty($this->user_options)) {
 				$user_email = AECUtility::get_user_email(); 
 				$defaults = array(
@@ -321,6 +326,8 @@ if (!class_exists('WPrapAjaxEditComments')) {
 			if ( array_key_exists( $key, $options ) ) {
 				return $options[ $key ];
 			}
+
+			return array();
 		}
 		private function get_user_options() {
 			if (empty($this->user_options)) { $this->user_options = $this->get_all_user_options(); }
@@ -413,7 +420,7 @@ if (!class_exists('WPrapAjaxEditComments')) {
 		} //end comment_text
 		
 		public function is_multisite() {
-			global $aecomments;
+			//global $aecomments;
 			$multisite_network = false;
 			if ( ! function_exists( 'is_plugin_active_for_network' ) )  require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 			if ( is_plugin_active_for_network( plugin_basename( __FILE__  ) ) ) {
@@ -500,4 +507,3 @@ if ( !function_exists( 'wp_print_r' ) ) {
 		else echo $print_r;
 	}
 }
-?>
