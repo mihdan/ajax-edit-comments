@@ -2,7 +2,7 @@
 Contributors: Ajay, ronalfy, joshben, blepoxp, mihdan
 Tags: ajax, comments,move comments,blacklist, blacklist comments,edit comments, edit, comment, admin, adopt-me
 Requires at least: 3.1
-Tested up to: 4.1
+Tested up to: 4.6.1
 License: GPLv2 or later
 Stable tag: 5.0.36.3
 
@@ -64,6 +64,10 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 </ul>
 
 == Changelog ==
+
+= 5.0.37.0 =
+* Updated 2016-10-14 by Mikhail Kobzarev - Ensuring WordPress 4.6.1 compatibility
+* Fixing E_STRICT errors
 
 = 5.0.36.0 =
 * Updated 2014-12-11 by Ronald Huereca - Ensuring WordPress 4.1 compatibility 
@@ -245,6 +249,9 @@ Please watch this video demonstrating the <a href='http://www.youtube.com/watch?
 
 
 == Upgrade Notice ==
+
+= 5.0.36.0 =
+Fixing E_STRICT errors
 
 = 5.0.36.0 =
 Rolled back JavaScript slashes functionality
