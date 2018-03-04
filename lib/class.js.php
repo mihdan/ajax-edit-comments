@@ -42,7 +42,8 @@ class AECJS {
 			if (!$afterthedeadline) {
 				$atdlang = "false";
 			}
-			wp_register_script( 'jquery-tools', $aecomments->get_plugin_url( '/js/jquery.tools.min.js' ) , array('jquery'), $aecomments->get_version(), true);
+			//wp_register_script( 'jquery-tools', $aecomments->get_plugin_url( '/js/jquery.tools.min.js' ) , array('jquery'), $aecomments->get_version(), true);
+			wp_register_script( 'jquery-tools', '//cdnjs.cloudflare.com/ajax/libs/jquery-tools/1.2.5/jquery.tools.min.js' , array('jquery'), $aecomments->get_version(), true);
 			wp_register_script( 'jquery-tools-tabs', $aecomments->get_plugin_url( '/js/tab-config.js' ), array( 'jquery-tools' ), $aecomments->get_version() );
 			
 			$localize_vars = AECDependencies::get_js_vars();			
