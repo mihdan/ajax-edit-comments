@@ -162,6 +162,8 @@ if ( ! class_exists( 'WPrapAjaxEditComments' ) ) {
 					'affiliate_text' => '',
 					'affiliate_show' => 'false',
 					'scripts_in_footer' => 'false',
+					'scripts_on_archive' => 'false',
+					'allowed_archives' => array(),
 					'compressed_scripts' => 'true',
 					'drop_down' => array(),
 					'classic' => array(),
@@ -380,7 +382,6 @@ if ( ! class_exists( 'WPrapAjaxEditComments' ) ) {
 	
 			$this->skip = false;
 			//css
-			
 			add_action("wp_print_styles", array('AECDependencies',"load_frontend_css"));
 			add_action("wp_print_styles", array('AECDependencies',"add_css"));
 			add_action('admin_print_styles', array('AECDependencies',"add_css")); 
@@ -481,6 +482,34 @@ if ( ! class_exists( 'WPrapAjaxEditComments' ) ) {
 			}
 		} //end save_admin_options
 		
+		/**
+		 * Wrapper for AECUtility::get_post_types(). Gets public default post types.
+		 * @return array
+		 */
+		public function get_default_post_types() {
+			return AECUtility::get_post_types();
+		}
+
+		/**
+		 * Wrapper for AECUtility::get_post_types(). Gets public custom post types.
+		 * @return array
+		 */
+		public function get_custom_post_types() {
+			return AECUtility::get_post_types([
+				'public' => true,
+				'_builtin' => false
+			]);
+		}
+
+		/**
+		 * Wrapper for AECUtility::get_all_post_types(). Gets all public post types.
+		 * @return array
+		 */
+		public function get_all_post_types() {
+			$built_in = $this->get_default_post_types();
+			$custom = $this->get_custom_post_types();
+			return array_merge($built_in, $custom);
+		}
     } //end class
 }
 //instantiate the class
