@@ -12,6 +12,7 @@ if (isset($_POST['update'])) {
 	$error = false;
 	
 	//Update global settings
+	$options['show_timer'] = $_POST['show_timer'];
 	$options['show_pages'] = $_POST['show_pages'];
 	$options['use_rtl'] = "false";
 	$options['clear_after'] = $_POST['clear_after'];
@@ -44,35 +45,27 @@ if (isset($_POST['update'])) {
 		switch ($info['id']) {
 			case "dropdownapprove":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdownapprove']);
-				continue;
 				break;
 			case "dropdownmoderate":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdownmoderate']);
-				continue;
 				break;
 			case "dropdownspam":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdownspam']);
-				continue;
 				break;
 			case "dropdowndelete":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdowndelete']);
-				continue;
 				break;
 			case "dropdowndelink":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdowndelink']);
-				continue;
 				break;
 			case "dropdownmove":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdownmove']);
-				continue;
 				break;
 			case "dropdownemail":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdownemail']);
-				continue;
 				break;
 			case "dropdownblacklist":
 				$dropdown[$columns] = aec_dropdown_condition($info,$_POST['dropdownblacklist']);
-				continue;
 				break;
 		}
 	}
@@ -84,39 +77,30 @@ if (isset($_POST['update'])) {
 		switch ($value['id']) {
 			case "edit":
 				$classic[$info] = aec_classic_condition($value,$_POST['edit']);
-				continue;
 				break;
 			case "approve":
 				$classic[$info] = aec_classic_condition($value,$_POST['approve']);
-				continue;
 				break;
 			case "moderate":
 				$classic[$info] = aec_classic_condition($value,$_POST['moderate']);
-				continue;
 				break;
 			case "spam":
 				$classic[$info] = aec_classic_condition($value,$_POST['spam']);
-				continue;
 				break;
 			case "delete":
 				$classic[$info] = aec_classic_condition($value,$_POST['delete']);
-				continue;
 				break;
 			case "delink":
 				$classic[$info] = aec_classic_condition($value,$_POST['delink']);
-				continue;
 				break;
 			case "move":
 				$classic[$info] = aec_classic_condition($value,$_POST['move']);
-				continue;
 				break;
 			case "email":
 				$classic[$info] = aec_classic_condition($value,$_POST['email']);
-				continue;
 				break;
 			case "blacklist":
 				$classic[$info] = aec_classic_condition($value,$_POST['blacklist']);
-				continue;
 				break;
 		}
 	}
