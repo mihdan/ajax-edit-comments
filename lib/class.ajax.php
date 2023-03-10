@@ -407,7 +407,7 @@ class AECAjax {
 			$postID = AECAjax::get_post_id();
 			$commentID = AECAjax::get_comment_id();
 			check_ajax_referer("requestdeletion_{$commentID}");
-			$message = AECAjax::request_deletion($commentID, $postID, trim(strip_tags(urldecode($_POST['message']))));
+			$message = AECAjax::request_deletion(trim(strip_tags(urldecode($_POST['message']))), $commentID, $postID,);
 			if ( $message == 1 ) {
 				die( json_encode( array( 'cid' => $commentID ) ) );
 			} else {
@@ -722,13 +722,13 @@ class AECAjax {
 		Parameters - $commentID, $postID
 		Returns error or response */
 		//public static class.ajax
-		public static function request_deletion($commentID = 0, $postID = 0, $message) {
+		public static function request_deletion($message, $commentID = 0, $postID = 0) {
 			$canedit = AECCore::can_edit($commentID, $postID);
 			if (is_string($canedit)) {
 				return 'request_deletion_failed';
 			}
 			if (wp_set_comment_status($commentID, 'hold') || wp_get_comment_status($commentID) == "unapproved") {
-				AECAjax::request_deletion_message($commentID, $message);
+				AECAjax::request_deletion_message($message, $commentID);
 				
 				//Get the comment and remove the cookie
 				$comment = get_comment($commentID);
@@ -742,7 +742,7 @@ class AECAjax {
 		} //end request_deletion
 		
 		//Sends out a request deletion email
-		public static function request_deletion_message($commentID = 0, $message) {
+		public static function request_deletion_message($message, $commentID = 0) {
 			$comment = get_comment($commentID);
 			$post    = get_post($comment->comment_post_ID);
 			$notify_message  = sprintf( __('A commenter requests deletion of a comment on your post #%1$s "%2$s".  The comment has been moved to the moderation queue.', 'ajaxEdit'), $comment->comment_post_ID, $post->post_title ) . "\r\n";
